@@ -1,0 +1,22 @@
+{
+  "name": "waterfall-finder",
+  "version": "1.0.0",
+  "description": "Website that uses weather and mapping APIs to determine when intermittent waterfalls are flowing.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/leoosborne/waterfall-finder.git"
+  },
+  "author": "Leo Osborne",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/leoosborne/waterfall-finder/issues"
+  },
+  "homepage": "https://github.com/leoosborne/waterfall-finder#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
