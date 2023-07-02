@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="" type="css">
+    <link rel="stylesheet" href="../../css/styles.css" type="text/css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="web-app using weather and mapping APIs to determine when intermittent waterfalls are flowing">
+    <title>Waterfall Finder| Dark Mode Color Chart</title>
+</head>
+<body class="color-chart-bkgnd">
+    <section class="color-chart">
+        <article class="color-item">
+            <h3 class="fs-h3 ff-heading">Primary 500</h3>
+            <div class="color-swatch" style="background-color: var(--clr-primary-500);"></div>
+            <p class="color-name ff-body">--clr-primary-500</p>
+        </article>
+
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Secondary 500</h3>
+            <div class="color-swatch" style="background-color: var(--clr-secondary-500);"></div>
+            <p class="color-name ff-body">--clr-secondary-500</p>
+        </article>
+
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Accent 500</h3>
+            <div class="color-swatch" style="background-color: var(--clr-accent-500);"></div>
+            <p class="color-name ff-body">--clr-accent-500</p>
+        </article>
+
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Light Background 500</h3>
+            <div class="color-swatch" style="background-color: var(--clr-light-bkgnd-500);"></div>
+            <p class="color-name ff-body">--clr-light-bkgnd-500</p>
+        </article>
+
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Dark Background 500</h3>
+            <div class="color-swatch" style="background-color: var(--clr-dark-bkgnd-500);"></div>
+            <p class="color-name ff-body">--clr-dark-bkgnd-500</p>
+        </article>
+
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Primary 600</h3>
+            <div class="color-swatch" style="background-color: var(--clr-primary-600);"></div>
+            <p class="color-name ff-body">--clr-primary-600</p>
+        </article>
+
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Primary 700</h3>
+            <div class="color-swatch" style="background-color: var(--clr-primary-700);"></div>
+            <p class="color-name ff-body">--clr-primary-700</p>
+        </article>
+
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Primary 800</h3>
+            <div class="color-swatch" style="background-color: var(--clr-primary-800);"></div>
+            <p class="color-name ff-body">--clr-primary-800</p>
+        </article>
+
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Primary 900</h3>
+            <div class="color-swatch" style="background-color: var(--clr-primary-900);"></div>
+            <p class="color-name ff-body">--clr-primary-900</p>
+        </article>
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Secondary 600</h3>
+            <div class="color-swatch" style="background-color: var(--clr-secondary-600);"></div>
+            <p class="color-name ff-body">--clr-secondary-600</p>
+        </article>
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Secondary 700</h3>
+            <div class="color-swatch" style="background-color: var(--clr-secondary-700);"></div>
+            <p class="color-name ff-body">  --clr-secondary-700</p>
+        </article>
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Secondary 800</h3>
+            <div class="color-swatch" style="background-color: var(--clr-secondary-800);"></div>
+            <p class="color-name ff-body">--clr-secondary-800</p>
+        </article>
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Secondary 900</h3>
+            <div class="color-swatch" style="background-color: var(--clr-secondary-900);"></div>
+            <p class="color-name ff-body">--clr-secondary-900</p>
+        </article>
+        <article class="color-item">
+            <h3 class=" ff-heading fs-h3">Accent 600</h3>
+            <div class="color-swatch" style="background-color: var(--clr-accent-600);"></div>
+            <p class="color-name ff-body">--clr-accent-600</p>
+        </article>
+        <article class="color-item">
+            <h3 class="ff-heading fs-h3">Accent 700</h3>
+            <div class="color-swatch" style="background-color: var(--clr-accent-700);"></div>
+            <p class="color-name ff-body">--clr-accent-700</p>
+        </article>
+        <article class="color-item">
+            <h3 class="ff-heading fs-h3">Accent 800</h3>
+            <div class="color-swatch" style="background-color: var(--clr-accent-800);"></div>
+            <p class="color-name ff-body">--clr-accent-800</p>
+        </article>
+        <article class="color-item">
+            <h3 class="ff-heading fs-h3">Accent 900</h3>
+            <div class="color-swatch" style="background-color: var(--clr-accent-900);"></div>
+            <p class="color-name ff-body">--clr-accent-900</p>
+        </article>
+        <article class="color-item">
+            <h3 class="ff-heading fs-h3">Light Background 600</h3>
+            <div class="color-swatch" style="background-color: var(--clr-light-bkgnd-600);"></div>
+            <div class="color-name ff-body">--clr-light-bkgnd-600</p>
+        </article>
+        <article class="color-item">
+            <h3 class="ff-heading fs-h3">Light Background 700</h3>
+            <div class="color-swatch" style="background-color: var(--clr-light-bkgnd-700);"></div>
+            <p class="color-name ff-body">--clr-light-bkgnd-700</p>
+        </article>        <article class="color-item">
+            <h3 class="ff-heading fs-h3">Light Background 800</h3>
+            <div class="color-swatch" style="background-color: var(--clr-light-bkgnd-800);"></div>
+            <p class="color-name ff-body">--clr-light-bkgnd-800</p>
+        </article>        <article class="color-item">
+            <h3 class="ff-heading fs-h3">Light Background 900</h3>
+            <div class="color-swatch" style="background-color: var(--clr-light-bkgnd-900);"></div>
+            <p class="color-name ff-body">--clr-light-bkgnd-900</p>
+        </article>
+
+        <article class="color-item">
+            <h3 class="ff-heading fs-h3">Dark Background 600</h3>
+            <div class="color-swatch" style="background-color: var(--clr-dark-bkgnd-600);"></div>
+            <p class="color-name ff-body">--clr-dark-bkgnd-600</p>
+        </article>
+        <article class="color-item">
+            <h3 class="ff-heading fs-h3">Dark Background 700</h3>
+            <div class="color-swatch" style="background-color: var(--clr-dark-bkgnd-700);"></div>
+            <p class="color-name ff-body">--clr-dark-bkgnd-700</p>
+        </article>        <article class="color-item">
+            <h3 class="ff-heading fs-h3">Dark Background 800</h3>
+            <div class="color-swatch" style="background-color: var(--clr-dark-bkgnd-800);"></div>
+            <p class="color-name ff-body">--clr-dark-bkgnd-800</p>
+        </article>        <article class="color-item">
+            <h3 class="ff-heading fs-h3">Dark Background 900</h3>
+            <div class="color-swatch" style="background-color: var(--clr-dark-bkgnd-900);"></div>
+            <p class="color-name ff-body">--clr-dark-bkgnd-900</p>
+        </article>
+
+    </section>
+</body>
+</html>
