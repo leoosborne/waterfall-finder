@@ -1,0 +1,80 @@
+<!-- add a gitignore node to github -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="web-app using weather and mapping APIs to determine when intermittent waterfalls are flowing">
+  <title>Waterfall Finder | Home</title>
+ <link rel="stylesheet" href= "styles.css">
+  
+  <div id = 'container'>
+    <div id = 'box'></div>
+  </div>
+</head>
+<body class="ff-primary text-primary-850 bg-neutral-100">    
+    <header class="primary-header">       
+      <div class="container">
+         <div class="nav-wrapper">
+              <a href="index.html" class="logo"><img src="img/leocast-logo.webp" alt="Leo Osborne's logo"></a>
+              <button class="mobile-nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
+                  <span class="visually-hidden">Menu</span>
+              </button>
+              <nav id="primary-navigation" class="primary-navigation">
+                  <ul aria-label="Primary" class="nav-list">
+                      <li class="nav-item"><a href="index.html#work">Work</a></li>
+                      <li class="nav-item"><a href="index.html#about">About</a></li>
+                      <li class="nav-item"><a href="index.html#contact">Contact</a></li>
+                  </ul>
+              </nav>
+          </div>
+      </div>
+  </header>
+
+  <main>
+    <section class="container hero-container">
+      <h1 class="--clr-primary-500 primary-header">Waterfall Finder</h1>
+      <h2>Where are the Waterfalls Flowing? : Mammoth Cave National Park</h2>
+      <div>
+        <!-- Add your photos dynamically using JavaScript -->
+      </div>
+    </section>
+
+    <section>
+      <h2>Shop</h2>
+      <!-- Add your e-commerce functionality here -->
+    </section>
+  </main>
+
+  <footer>
+    <!-- Add your footer content here -->
+  </footer>
+
+  <!-- Add your JavaScript code and API integration here -->
+  <script>
+    // Example JavaScript code
+    // You can use this section to fetch data from your API and populate the photo grid
+
+    const photoGrid = document.querySelector('.photo-grid');
+
+    // Fetch photos from the API
+    fetch('https://api.example.com/photos')
+      .then(response => response.json())
+      .then(photos => {
+        photos.forEach(photo => {
+          const img = document.createElement('img');
+          img.src = photo.url;
+          img.alt = photo.title;
+          photoGrid.appendChild(img);
+        });
+      })
+      .catch(error => {
+        console.error('Error fetching photos:', error);
+        console.log("where is ESLint?");
+      });
+  </script>
+
+</body>
+</html>
