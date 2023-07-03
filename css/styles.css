@@ -31,13 +31,6 @@ Embedded Fonts
     font-display: swap;
   }
   
-  @font-face {
-    font-family: 'oswald';
-    src: local('oswald medium italic'), local('oswald-medium-italic'), url('../../fonts/oswald-mediumitalic-webfont.woff') format('woff');
-    font-weight: 500;
-    font-style: italic;
-    font-display: swap;
-  }
   
   @font-face {
     font-family: 'oswald';
@@ -46,44 +39,37 @@ Embedded Fonts
     font-style: normal;
     font-display: swap;
   }
+
+  /* Fira Sans: body font sans serif */
   
   @font-face {
-    font-family: 'oswald';
-    src: local('oswald bold italic'), local('oswald-bold-italic'), url('../../fonts/oswald-bolditalic-webfont.woff') format('woff');
-    font-weight: 700;
-    font-style: italic;
-    font-display: swap;
-  }
-  /* Linguistics pro: body font serif */
-  
-  @font-face {
-    font-family: 'linguistics pro';
-    src: url('../../fonts/linguisticspro-regular-webfont.woff') format('woff');
+    font-family: 'fira sans';
+    src: local( 'fira sans'), local( 'fira-sans'), local( 'firasans'), url('../../fonts/firasans-regular-webfont.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
   }
   
   @font-face {
-    font-family: 'linguistics pro';
-    src: url('../../fonts/linguisticspro-italic-webfont.woff') format('woff');
+    font-family: 'fira sans';
+    src: local( 'fira sans'), local( 'fira-sans'), local( 'firasans'), url('../../fonts/firasans-italic-webfont.woff') format('woff');
     font-weight: 400;
     font-style: italic;
     font-display: swap;
   }
   
   @font-face {
-    font-family: 'linguistics pro';
-    src: url('../../fonts/linguisticspro-bold-webfont.woff') format('woff');
-    font-weight: 700;
+    font-family: 'fira sans';
+    src: local( 'fira sans'), local( 'fira-sans'), local( 'firasans'), url('../../fonts/firasans-semibold-webfont.woff') format('woff');
+    font-weight: 600;
     font-style: normal;
     font-display: swap;
   }
   
   @font-face {
-    font-family: 'linguistics pro';
-    src: url('../../fonts/linguisticspro-bolditalic-webfont.woff') format('woff');
-    font-weight: 700;
+    font-family: 'fira sans';
+    src: local( 'fira sans'), local( 'fira-sans'), local( 'firasans'), url('../../fonts/firasans-semibolditalic-webfont.woff') format('woff');
+    font-weight: 600;
     font-style: italic;
     font-display: swap;
   }
@@ -125,9 +111,9 @@ Embedded Fonts
   --clr-dark-bkgnd-800: hsl(346, 25%, 24%);
   --clr-dark-bkgnd-900: hsl(346, 25%, 28%);
   
-  --ff-regular: 'linguistics pro', serif;
-  --ff-semibold: 'linguistics pro', serif;
-  --ff-bold: 'linguistics pro', serif;
+  --ff-regular: 'fira sans', sans-serif;
+  --ff-semibold: 'fira sans', sans-serif;
+  --ff-bold: 'fira sans', sans-serif;
   
   --ff-primary: var(--ff-regular);
   --ff-body: var(--ff-regular);
@@ -143,10 +129,11 @@ Embedded Fonts
   --fs-100: .75rem; /*12px*/
   --fs-200: .875rem; /*14px*/
   --fs-300: 1rem; /*16px*/
-  --fs-400: 1.25rem; /*18px*/
-  --fs-500: 1.5rem; /*24px*/
-  --fs-600: 2.125rem; /*34px*/
-  --fs-700: 3rem; /*48px*/
+  --fs-400: 1.125rem; /*18px*/
+  --fs-500: 1.25rem; /*20px*/
+  --fs-600: 1.5rem; /*24px*/
+  --fs-700: 2.125rem; /*34px*/
+  --fs-800: 3rem; /*48px*/
   
   
   }
