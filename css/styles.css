@@ -105,11 +105,11 @@ Embedded Fonts
   --clr-light-bkgnd-900: hsl(206, 58%, 84%);
   
   /* Dark Background Color */
-  --clr-dark-bkgnd-500: hsl(346, 25%, 12%);
-  --clr-dark-bkgnd-600: hsl(346, 25%, 16%);
-  --clr-dark-bkgnd-700: hsl(346, 25%, 20%);
-  --clr-dark-bkgnd-800: hsl(346, 25%, 24%);
-  --clr-dark-bkgnd-900: hsl(346, 25%, 28%);
+  --clr-dark-bkgnd-500: hsl(12, 52%, 7%);
+  --clr-dark-bkgnd-600: hsl(12, 52%, 11%);
+  --clr-dark-bkgnd-700: hsl(12, 52%, 15%);
+  --clr-dark-bkgnd-800: hsl(12, 52%,19%);
+  --clr-dark-bkgnd-900: hsl(12, 52%, 23%);
   
   --ff-regular: 'fira sans', sans-serif;
   --ff-semibold: 'fira sans', sans-serif;
