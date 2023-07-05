@@ -63,6 +63,6 @@ The project will be a responsive multi-page application (MPA) built either with 
     4. Want users to embed these pages in their websites.
 
 ## Visualizations
-1. Wireframe in Figma: https://bit.ly/3NsFo10
+1. Wireframes in Figma: https://bit.ly/3NsFo10, https://bit.ly/3DjWiup
 2. Color Pallete in html: resources > colors.html
 3. Font styles and sizes in Figma: [to come]
