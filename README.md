@@ -6,7 +6,6 @@ Build a responsive website that combines a map of Mammoth Cave National Park wat
 Project will create functions that
 1. Show whether a waterfall is currently flowing.
 2. Show how long the flow is estimated to last.
-3. Show a 5-day forecast for the park, so users can plan a visit while the waterfalls are flowing.
 
 ## Project Requirements
 1. "Use arrays, objects, sets or maps to store and retrieve information that is displayed in your app."
