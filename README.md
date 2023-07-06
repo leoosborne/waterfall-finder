@@ -10,17 +10,15 @@ Project will create functions that
 
 ## Project Requirements
 1. "Use arrays, objects, sets or maps to store and retrieve information that is displayed in your app."
-    - [ ] Retrieve data from the accuweather  API (to be used in the functions below), and store in maps.
-        - [ ] How much rain has fallen for the past hour as measured by the closest weather provider.
+    - [ ] Retrieve data from the accuweather  API (to be used in the function below), and store in maps.
+    - [ ] How much rain has fallen for the past hour as measured by the closest weather provider.
 
 2. "Analyze data that is stored in arrays, objects, sets or maps and display information about it in your app."
-    - [ ] Create a function or functions that calculate whether enough rain has fallen over a certain time to activate the waterfalls and, if so, how long the waterfall should remain active. 
-    - [ ] The function(s) take the following arguments (which are all based on best estimates):
-        - [ ] Approximate hourly rainfall in area 
-        - [ ] Approximate size of watershed above falls 
-        - [ ] Approximate average incline above falls
-        - [ ] Approximate rate of flow of falls
 
+    - [ ] Create a function or functions that calculate whether enough rain has fallen over a certain time to activate the waterfalls and, if so, how long the waterfall should remain active. 
+    - [ ] The function(s) take the following two arguments, based on best estimates:
+        - [ ] Approximate hourly rainfall in area 
+        - [ ] Approximate rate of flow of falls
 
     - [ ] If these values prove to difficult to determine, the function(s) will use the following arguments:
         - [ ] Approximate hourly rainfall in area  
@@ -29,25 +27,18 @@ Project will create functions that
 3. "Visualize data in a user friendly way. (e.g. graph, chart, etc.)."
 
     - [ ] Using Chart.js, show how much rain has fallen per hour over the past five days.
-
     - [ ] Using Google Earth, show the watershed area above each falls.
-
     - [ ] Using the accuwheather API, display the weather forecast for the next five days.
 
 4. "Retrieve data from a third-party API and use it to display something within your app."
-
     - [ ] Historic area rainfall for the past 1 hour useing the Accuweather API.
-
     - [ ] Location of waterfalls and size of watershed using LiDAR map layer (source TBD) and Google Earth API. 
-
     - [ ] Five day forecast for the location of the waterfalls using Accuweather API.
 
 5. "Create a node.js web server using a modern framework such as Express.js or Fastify.  Serve at least one route that your app uses."
 
     - [ ] Create a server with Node.js and Express.js.
-
     - [ ] Use local storage to save JSON data from APIs and function returns.
-
     - [ ] Use vanilla JavaScript for the client and server side scripting.
 
 
