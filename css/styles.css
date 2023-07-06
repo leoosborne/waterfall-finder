@@ -99,18 +99,18 @@ Embedded Fonts
   --clr-accent-900: hsl(36, 48%, 76%);
   
   /* Light Background Color */
-  --clr-light-bkgnd-500: hsl(206, 58%, 100%);
-  --clr-light-bkgnd-600: hsl(206, 58%, 96%);
-  --clr-light-bkgnd-700: hsl(206, 58%, 92%);
-  --clr-light-bkgnd-800: hsl(206, 58%, 88%);
-  --clr-light-bkgnd-900: hsl(206, 58%, 84%);
+  --clr-light-500: hsl(206, 58%, 100%);
+  --clr-light-600: hsl(206, 58%, 96%);
+  --clr-light-700: hsl(206, 58%, 92%);
+  --clr-light-800: hsl(206, 58%, 88%);
+  --clr-light-900: hsl(206, 58%, 84%);
   
   /* Dark Background Color */
-  --clr-dark-bkgnd-500: hsl(12, 52%, 7%);
-  --clr-dark-bkgnd-600: hsl(12, 52%, 11%);
-  --clr-dark-bkgnd-700: hsl(12, 52%, 15%);
-  --clr-dark-bkgnd-800: hsl(12, 52%,19%);
-  --clr-dark-bkgnd-900: hsl(12, 52%, 23%);
+  --clr-dark-500: hsl(12, 52%, 7%);
+  --clr-dark-600: hsl(12, 52%, 11%);
+  --clr-dark-700: hsl(12, 52%, 15%);
+  --clr-dark-800: hsl(12, 52%,19%);
+  --clr-dark-900: hsl(12, 52%, 23%);
   
   --ff-regular: 'fira sans', sans-serif;
   --ff-semibold: 'fira sans', sans-serif;
@@ -340,27 +340,32 @@ Mobile First Typography
 .hero-container {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-content: space-between;
   align-items: center;
   min-height: 70vh;
   background-image: url(../img/hero-mobile-2.jpg);
   background-size: cover;
   background-position: center;
+  position: relative;
 }
 
-.hero-container > h1,
-.hero-container > h2 {
-  color: var(--clr-light-bkgnd-500);
+.hero-container > h1 {
   line-height: 3.75rem;
   text-align: center;
-  font-weight: var(--fw-semibold);
-  padding: .25rem;
+  /* padding: .25rem; */
+  box-sizing: border-box;
   width: 100%;
-  background-color: hsl(36, 68%, 62%, 60%);
+  background-color: hsl(36, 68%, 62%, 75%);
 }
 
 .hero-container > h2 {
-  margin-bottom: -21.75rem;
+  text-align: center;
+  background-color: hsl(36, 68%, 62%, 75%);
+  box-sizing: border-box;
+  padding: .7rem;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
 }
 
 h2 > a:link,
