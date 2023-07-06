@@ -16,12 +16,9 @@ Project will create functions that
 2. "Analyze data that is stored in arrays, objects, sets or maps and display information about it in your app."
 
     - [ ] Create a function or functions that calculate whether enough rain has fallen over a certain time to activate the waterfalls and, if so, how long the waterfall should remain active. 
-    - [ ] The function(s) take the following two arguments, based on best estimates:
-        - [ ] Approximate hourly rainfall in area 
-        - [ ] Approximate rate of flow of falls
-
-    - [ ] If these values prove to difficult to determine, the function(s) will use the following arguments:
-        - [ ] Approximate hourly rainfall in area  
+    - [ ] The function(s) take the following three arguments, based on best estimates:
+        - [ ] Hourly rainfall in area  
+        - [ ] Time frame to search (12, 24, 36, 48 hours)
         - [ ] Approximate time falls flow after one inch of rainfall
 
 3. "Visualize data in a user friendly way. (e.g. graph, chart, etc.)."
