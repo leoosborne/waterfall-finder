@@ -44,15 +44,14 @@ Project will create functions that
 
     - [ ] Five day forecast for the location of the waterfalls using Accuweather API.
 
-5. "Interact with a database to store and retrieve information (e.g. MySQL, MongoDB, etc)."
+5. "Create a node.js web server using a modern framework such as Express.js or Fastify.  Serve at least one route that your app uses."
 
     - [ ] Create a server with Node.js and Express.js.
 
-    - [ ] Connect to a MongoDB database.
+    - [ ] Use local storage to save JSON data from APIs and function returns.
 
     - [ ] Use vanilla JavaScript for the client and server side scripting.
 
-    - [ ] Alternatively, if I have enough time to learn ReactJS, use a MERN stack for hosting the website.
 
 ## Technical Description
 The project will be a responsive multi-page application (MPA) built either with MongoDB, Express, ReactJS and Node.js, or with vanilla JavaScript if I cannot grok React within the alloted time. My research pointed me to this setup because I want the following features.
