@@ -10,10 +10,8 @@ Project will create functions that
 
 ## Project Requirements
 1. "Use arrays, objects, sets or maps to store and retrieve information that is displayed in your app."
-    - [ ] Store data retrieved from the accuweather  API to be used in the functions below.
+    - [ ] Retrieve data from the accuweather  API (to be used in the functions below), and store in maps.
         - [ ] How much rain has fallen for the past hour as measured by the closest weather provider.
-        - [ ] Five-Day forecast from the closest weather provider.
-    - [ ] Store data retrieved from the mapping  API (Google Earth, other?), to be used in the functions below.
 
 2. "Analyze data that is stored in arrays, objects, sets or maps and display information about it in your app."
     - [ ] Create a function or functions that calculate whether enough rain has fallen over a certain time to activate the waterfalls and, if so, how long the waterfall should remain active. 
