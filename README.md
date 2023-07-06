@@ -1,7 +1,7 @@
 # waterfall-finder
 Website that uses weather and mapping APIs to determine when intermittent waterfalls are flowing. 
 ## Project Brief
-Build a responsive website that combines a map of Mammoth Cave National Park waterfalls with recent rainfall levels and a five day forecast and runs calculations on the data  to highlight the best times to visit and see the waterfalls flowing.
+Build a responsive website that combines a map of Mammoth Cave National Park waterfalls with recent rainfall levels and runs calculations on the data  to highlight the best times to visit and see the waterfalls flowing.
 
 Project will create functions that
 1. Show whether a waterfall is currently flowing.
@@ -32,7 +32,7 @@ Project will create functions that
 
     - [ ] Using Chart.js, show how much rain has fallen per hour over the past five days.
 
-    - [ ] Using Google Eartyh, show the watershed area above each falls.
+    - [ ] Using Google Earth, show the watershed area above each falls.
 
     - [ ] Using the accuwheather API, display the weather forecast for the next five days.
 
