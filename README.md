@@ -24,8 +24,8 @@ Project will create functions that
 3. "Visualize data in a user friendly way. (e.g. graph, chart, etc.)."
 
     - [ ] Using Chart.js, show how much rain has fallen per hour over the past five days.
-    - [ ] Using Google Earth, show the watershed area above each falls.
-    - [ ] Using the accuwheather API, display the weather forecast for the next five days.
+    - [ ] Using the function, show the approximate time that waterfalls will be flowing.
+  
 
 4. "Retrieve data from a third-party API and use it to display something within your app."
     - [ ] Historic area rainfall for the past 1 hour useing the Accuweather API.
