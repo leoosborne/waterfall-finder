@@ -354,12 +354,13 @@ Mobile First Typography
   line-height: 3.75rem;
   text-align: center;
   font-weight: var(--fw-semibold);
-  padding: 1rem;
+  padding: .25rem;
+  width: 100%;
   background-color: hsl(36, 68%, 62%, 60%);
 }
 
 .hero-container > h2 {
-  margin-bottom: -18rem;
+  margin-bottom: -21.75rem;
 }
 
 h2 > a:link,
