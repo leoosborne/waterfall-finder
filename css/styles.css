@@ -342,7 +342,7 @@ Mobile First Typography
   align-content: space-between;
   align-items: center;
   min-height: 65vh;
-  background-image: url(../img/hero-mobile-2.jpg);
+  background-image: url(../img/hero-mobile.jpg);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -364,6 +364,12 @@ Mobile First Typography
   width: 100%;
   position: absolute;
   bottom: 0;
+}
+
+.section-container {
+  background: var( --clr-accent-500);
+  margin: 1.5rem 0;
+  padding: 1rem;
 }
 
 h2 > a:link,
