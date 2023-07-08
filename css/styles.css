@@ -106,8 +106,8 @@ Embedded Fonts
   --clr-light-900: hsl(206, 58%, 84%);
   
   /* Dark Background Color */
-  --clr-dark-500: hsl(12, 52%, 7%);
-  --clr-dark-600: hsl(12, 52%, 11%);
+  --clr-dark-500: hsl(10, 47%, 7%);
+  --clr-dark-600: rgb(43, 19, 13);
   --clr-dark-700: hsl(12, 52%, 15%);
   --clr-dark-800: hsl(12, 52%,19%);
   --clr-dark-900: hsl(12, 52%, 23%);
@@ -233,8 +233,8 @@ Navigation
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
-  /* margin: 2rem 1rem 0; */
+   /* padding: 1rem;
+ margin: 2rem 1rem 0; */
 
 }
 
@@ -262,7 +262,7 @@ Navigation
 
 .nav-item {
   font-size: 1.125rem;
-  font-weight: var(--fw-semi-bold);
+  font-weight: var(--fw-semibold);
   line-height: 1.5rem;
   text-transform: uppercase;
   letter-spacing: .03rem;
@@ -350,19 +350,18 @@ Mobile First Typography
 }
 
 .hero-container > h1 {
-  line-height: 3.75rem;
+  line-height: 2.5rem;
   text-align: center;
-  /* padding: .25rem; */
   box-sizing: border-box;
   width: 100%;
   background-color: hsl(36, 68%, 62%, 75%);
 }
 
 .hero-container > h2 {
+  line-height: 2.5rem;
   text-align: center;
   background-color: hsl(36, 68%, 62%, 75%);
   box-sizing: border-box;
-  padding: .7rem;
   width: 100%;
   position: absolute;
   bottom: 0;
@@ -391,7 +390,7 @@ h2 > a:visited {
 Media Queries *******
 *********************/
 
-@media only screen and (max-width: 490px) {
+@media only screen and (max-width: 600px) {
   .primary-navigation {
       display: none;
       position: fixed; 
@@ -444,16 +443,19 @@ Media Queries *******
       padding: 0; 
       width: 2rem;
       aspect-ratio: 1;
-      background-image: url(img/icon-hamburger.png);
+      background-image: url(../img/icon-hamburger.png);
       background-size: contain;
       background-repeat: no-repeat;
       background-position: center;
   }
   
   .mobile-nav-toggle[aria-expanded=true] {
-    background-image: url(img/icon-close.png);
+    background-image: url(../img/icon-close.png);
   }
 
+  .mobile-container {
+    margin: 1rem;
+  }
 }
 
 @media only screen and (min-width: 768px) {
@@ -664,7 +666,7 @@ border: 0;
 .bg-dark-900 { background-color: var(--clr-dark-900); }
 
 .fw-bold { font-weight: var(--fw-bold); }
-.fw-semi-bold { font-weight: var(--fw-semi-bold); }
+.fw-semibold { font-weight: var(--fw-semibold); }
 .fw-regular { font-weight: var(--fw-regular); }
 
 .fs-desk-h1{font-size: var(--fs-800);} 
