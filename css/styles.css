@@ -233,17 +233,16 @@ Navigation
   display: flex;
   justify-content: space-between;
   align-items: center;
-   /* padding: 1rem;
- margin: 2rem 1rem 0; */
+  height: 3rem;
 
 }
 
 .mobile-nav-toggle {
-  display: none;
+  display: none;;
 }
 
 .logo img {
-  width: 13.75rem;
+  height: 3rem;
 }
 
 
@@ -342,7 +341,7 @@ Mobile First Typography
   flex-direction: column;
   align-content: space-between;
   align-items: center;
-  min-height: 70vh;
+  min-height: 65vh;
   background-image: url(../img/hero-mobile-2.jpg);
   background-size: cover;
   background-position: center;
@@ -358,7 +357,7 @@ Mobile First Typography
 }
 
 .hero-container > h2 {
-  line-height: 2.5rem;
+  line-height: 2rem;
   text-align: center;
   background-color: hsl(36, 68%, 62%, 75%);
   box-sizing: border-box;
@@ -441,7 +440,7 @@ Media Queries *******
       background: transparent;
       border: 0;
       padding: 0; 
-      width: 2rem;
+      width: 3rem;
       aspect-ratio: 1;
       background-image: url(../img/icon-hamburger.png);
       background-size: contain;
