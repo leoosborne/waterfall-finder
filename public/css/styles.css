@@ -341,7 +341,7 @@ Mobile First Styles ****
   align-content: space-between;
   align-items: center;
   min-height: 65vh;
-  background-image: url(../../public/img/hero-mobile.jpg);
+  background-image: url(/img/hero-mobile.jpg);
   background-size: cover;
   background-position: center;
   position: relative;

@@ -16,3 +16,4 @@ primaryNav.addEventListener('click', () => {
     navToggle.toggleAttribute("aria-expanded");
 });
 
+///test to see if nodemon is updating the build
