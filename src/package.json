@@ -1,7 +1,7 @@
 {
-  "name": "src",
+  "name": "waterfall-finder",
   "version": "1.0.0",
-  "description": "",
+  "description": "backend hosting for static content and APIs",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -16,5 +16,4 @@
   "devDependencies": {
     "nodemon": "^3.0.1"
   }
-
 }
