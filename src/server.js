@@ -8,11 +8,15 @@ app.use(express.json());
 let router = express.Router();
 
 router.get('/recentRain', (req, res, next) => {
-    fetch(`http://dataservice.accuweather.com/currentconditions/v1/333336/historical/24/PrecipitationSummary/Past24Hours/Imperial?apikey=${process.env.ACCUWEATHER_API_KEY}`)  
+    fetch(`http://dataservice.accuweather.com/currentconditions/v1/333336?apikey=${process.env.ACCUWEATHER_API_KEY}&details=${true}`)  
     .then(response => {
         response.json()
             .then(json => {
-                console.log(json);
+                returnObject = {
+                    "value": json[0].PrecipitationSummary.Past24Hours.Imperial.Value, 
+                    "unit": json[0].PrecipitationSummary.Past24Hours.Imperial.Unit
+                };
+                console.log(returnObject);
             })
     })
 
@@ -20,6 +24,21 @@ router.get('/recentRain', (req, res, next) => {
         console.error(error)
     })
 })
+
+
+// router.get('/recentRain', (req, res, next) => {
+//     fetch(`http://dataservice.accuweather.com/currentconditions/v1/333336/historical/24?apikey=${process.env.ACCUWEATHER_API_KEY}&details=${true}`)  
+//     .then(response => {
+//         response.json()
+//             .then(json => {
+//                 console.log(json);
+//             })
+//     })
+
+//     .catch(error => {
+//         console.error(error)
+//     })
+// })
 
 router.get('/users', (req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
