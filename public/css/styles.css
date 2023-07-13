@@ -411,6 +411,7 @@ Mobile First Styles ****
 
 .section-container table {
   margin: 1rem 0;
+  /* replace the style="width: 100% in html with a nth child selector, targeting the second td in each tr */
 }
 
 /* h2 > a:link,
