@@ -1,5 +1,6 @@
 'use strict';
 
+
 require('dotenv').config();
 
 const express = require('express');
@@ -9,6 +10,9 @@ app.use(express.json());
 
 let router = express.Router();
 
+
+
+// API req call to accuweather routes
 router.get('/recentRain/:location', (req, res, next) => {
     fetch(`http://dataservice.accuweather.com/currentconditions/v1/${req.params.location}?apikey=${process.env.ACCUWEATHER_API_KEY}&details=${true}`)  
     .then(response => {
@@ -29,16 +33,9 @@ router.get('/recentRain/:location', (req, res, next) => {
     
 
                 console.log(rainDataMap);
-                res.send(rainDataMap);
-
-                // let returnObject = {
-                //     "value": json[0].PrecipitationSummary.Past24Hours.Imperial.Value, 
-                //     "unit": json[0].PrecipitationSummary.Past24Hours.Imperial.Unit
-                // }
-
-                // console.log(returnObject);
-                // res.send(returnObject);
-             })
+                return rainDataMap;
+                
+            })
     })
 
     .catch(error => {
@@ -46,6 +43,31 @@ router.get('/recentRain/:location', (req, res, next) => {
     })
 })
 
+// Justin's API req to accuweather | current temperature
+// router.get('/recentRain/:location', (req, res, next) => {
+//     fetch(`http://dataservice.accuweather.com/currentconditions/v1/${req.params.location}?apikey=${process.env.ACCUWEATHER_API_KEY}&details=${true}`)  
+//     .then(response => {
+//         response.json()
+//             .then(json => {
+
+//                 if (json.Code) {
+//                     res.send({"value": "Error", "unit": "None"});
+//                     return;
+//                 }   
+
+//                 let returnObject = {
+//                     "value": json[0].PrecipitationSummary.Past24Hours.Imperial.Value, 
+//                     "unit": json[0].PrecipitationSummary.Past24Hours.Imperial.Unit
+//                 }
+
+//                 console.log(returnObject);
+//                 res.send(returnObject);
+//             })
+//     })
+//     .catch(error => {
+//         console.error(error)
+//     })
+// })  
 
 router.get('/users', (req, res, next) => {
     res.setHeader('Content-Type', 'application/json');
