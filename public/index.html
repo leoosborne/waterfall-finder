@@ -11,6 +11,35 @@
   <div id = 'container'>
     <div id = 'box'></div>
   </div>
+<script>
+fetch('api/recentRain')
+    .then(response => response.json())
+    .then(data => {
+        const rainDataMap = data.rainDataMap;
+        for (const [zipcode, rainData] of rainDataMap) {
+            document.getElementById(zipcode.toString()).textContent = rainData.value + " " + rainData.unit;
+        }
+        console.log(zipcode);
+    })
+    .catch(error => {
+        console.error(error);
+        // Handle the error
+    });
+</script>
+
+  <!-- <script>
+    fetch('api/recentRain/')
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById('brownsville').textContent = data.location;
+        })
+        .catch(error => {
+            console.error(error);
+            // Handle the error
+        });
+</script> -->
+
+
 </head>
 <body class="ff-primary"> 
   <div class="mobile-container"> 
@@ -57,7 +86,22 @@
       <table style="width:100%" class="fs-body-md ff-body txt-secondary-900">
         <tr>
           <td>Rainfall in last 24 hrs: </td>
-          <td id="rain_past_24hrs"></td>
+          <td id="42210"></td>
+        </tr>
+        <tr>
+          <td>Are the Falls Flowing?</td>
+          <td>Yes!</td>
+        </tr>
+        <tr>
+          <td>How Much Longer?</td>
+          <td>Est. 16 hrs.</td>
+        </tr>
+      </table>
+      <p class="fs-body-md ff-body txt-dark-600">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo. <button class="text-button" ><span class="txt-secondary-800 button">MORE</span></button></p>
+      <table style="width:100%" class="fs-body-md ff-body txt-secondary-900">
+        <tr>
+          <td>Rainfall in last 24 hrs: </td>
+          <td id="40206"></td>
         </tr>
         <tr>
           <td>Are the Falls Flowing?</td>
@@ -156,7 +200,7 @@
     // Example JavaScript code
     // You can use this section to fetch data from your API and populate the photo grid
 
-    const photoGrid = document.querySelector('.photo-grid');
+    // const photoGrid = document.querySelector('.photo-grid');
 
     // Fetch photos from the API
     // fetch('https://api.example.com/photos')
@@ -175,7 +219,7 @@
     //   });
   </script>
   <script type="module" src="/js/nav.js"></script>
-  <script type="module" src="/js/app.js"></script>
+  <!-- <script type="module" src="/js/app.js"></script> -->
   <!-- this is for triggering the API call to accuweather upon opening the dev-server
     put at the head of the API call
     <script> 
