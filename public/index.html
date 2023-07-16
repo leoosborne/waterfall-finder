@@ -15,13 +15,14 @@
 fetch('api/recentRain')
     .then(response => response.json())
     .then(data => {
-        const rainDataMap = data.rainDataMap;
-        for (const [zipcode, rainData] of rainDataMap) {
+        let rainDataMap = data.rainDataMap;
+        for (let [zipcode, rainData] of rainDataMap) {
             document.getElementById(zipcode.toString()).textContent = rainData.value + " " + rainData.unit;
+            console.log(zipcode);
         }
-        console.log(zipcode);
+       
     })
-    .catch(error => {
+    .catch(error => { 
         console.error(error);
         // Handle the error
     });
@@ -85,7 +86,7 @@ fetch('api/recentRain')
       <p class="fs-body-md ff-body txt-dark-600">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo. <button class="text-button" ><span class="txt-secondary-800 button">MORE</span></button></p>
       <table style="width:100%" class="fs-body-md ff-body txt-secondary-900">
         <tr>
-          <td>Rainfall in last 24 hrs: </td>
+          <td>Rainfall total yesterday: </td>
           <td id="42210"></td>
         </tr>
         <tr>
@@ -100,7 +101,7 @@ fetch('api/recentRain')
       <p class="fs-body-md ff-body txt-dark-600">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo. <button class="text-button" ><span class="txt-secondary-800 button">MORE</span></button></p>
       <table style="width:100%" class="fs-body-md ff-body txt-secondary-900">
         <tr>
-          <td>Rainfall in last 24 hrs: </td>
+          <td>Rainfall total yesterday: </td>
           <td id="40206"></td>
         </tr>
         <tr>

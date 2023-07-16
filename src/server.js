@@ -11,15 +11,16 @@ app.use(express.json());
 let router = express.Router();
 
 // using async/await AND and array with zipcodes, API req call to accuweather routes
-const zipArr = [42210, 40206];
+let zipArr = [42210, 40206];
+let historicalRainData = new Map(); // New Map to store historical rain data globally
 
 router.get('/recentRain', async (req, res, next) => {
   try {
-    const rainDataMap = new Map();
+    let rainDataMap = new Map();
 
-    for (const zipcode of zipArr) {
-      const response = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${zipcode}?apikey=${process.env.ACCUWEATHER_API_KEY}&details=${true}`);
-      const json = await response.json();
+    for (let zipcode of zipArr) {
+      let response = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${zipcode}?apikey=${process.env.ACCUWEATHER_API_KEY}&details=${true}`);
+      let json = await response.json();
 
       if (json.Code) {
         rainDataMap.set(zipcode, { "value": "Error", "unit": "None" });
@@ -30,7 +31,9 @@ router.get('/recentRain', async (req, res, next) => {
         });
       }
     }
-    console.log(rainDataMap);
+    historicalRainData.set(Date.now(), Array.from(rainDataMap)); // Store data with timestamp
+    console.log(historicalRainData);
+
     res.send({ "rainDataMap": Array.from(rainDataMap) });
   } catch (error) {
     console.error(error);
