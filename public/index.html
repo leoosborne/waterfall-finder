@@ -7,24 +7,24 @@
   <meta name="description" content="web-app using weather and mapping APIs to determine when intermittent waterfalls are flowing">
   <title>Waterfall Finder | Home</title>
   <link rel="stylesheet" href="/css/styles.css" type="text/css">
-  
+ 
   <div id = 'container'>
     <div id = 'box'></div>
   </div>
 <script>
-fetch('api/recentRain')
-    .then(response => response.json())
-    .then(data => {
-        let rainDataMap = data.rainDataMap;
-        for (let [zipcode, rainData] of rainDataMap) {
-            document.getElementById(zipcode.toString()).textContent = rainData.value + " " + rainData.unit;
-            console.log(zipcode);
-        }
-       
-    })
-    .catch(error => { 
-        console.error(error);
-        // Handle the error
+  fetch('api/recentRain')
+      .then(response => response.json())
+      .then(data => {
+          let rainDataMap = data.rainDataMap;
+          for (let [zipcode, rainData] of rainDataMap) {
+              document.getElementById(zipcode.toString()).textContent = rainData.value + " " + rainData.unit;
+              console.log(zipcode);
+          }
+        
+      })
+      .catch(error => { 
+          console.error(error);
+          // Handle the error
     });
 </script>
 
