@@ -7,40 +7,6 @@
   <meta name="description" content="web-app using weather and mapping APIs to determine when intermittent waterfalls are flowing">
   <title>Waterfall Finder | Home</title>
   <link rel="stylesheet" href="/css/styles.css" type="text/css">
- 
-  <div id = 'container'>
-    <div id = 'box'></div>
-  </div>
-<script>
-  fetch('api/recentRain')
-      .then(response => response.json())
-      .then(data => {
-          let rainDataMap = data.rainDataMap;
-          for (let [zipcode, rainData] of rainDataMap) {
-              document.getElementById(zipcode.toString()).textContent = rainData.value + " " + rainData.unit;
-              console.log(zipcode);
-          }
-        
-      })
-      .catch(error => { 
-          console.error(error);
-          // Handle the error
-    });
-</script>
-
-  <!-- <script>
-    fetch('api/recentRain/')
-        .then(response => response.json())
-        .then(data => {
-            document.getElementById('brownsville').textContent = data.location;
-        })
-        .catch(error => {
-            console.error(error);
-            // Handle the error
-        });
-</script> -->
-
-
 </head>
 <body class="ff-primary"> 
   <div class="mobile-container"> 
@@ -83,6 +49,9 @@
         <img class="park-map-mobile"  src="/img/park-map-mobile.jpg" alt="A map of Mammoth Cave National Park with a blue highlighted section around the First Creek area">
         <figcaption class="fs-100 txt-dark-600">Mammoth Cave National Park, with highlighted section of the First Creek area.</figcaption>
       </figure>
+
+     
+
       <p class="fs-body-md ff-body txt-dark-600">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo. <button class="text-button" ><span class="txt-secondary-800 button">MORE</span></button></p>
       <table style="width:100%" class="fs-body-md ff-body txt-secondary-900">
         <tr>
@@ -90,15 +59,14 @@
           <td id="42210"></td>
         </tr>
         <tr>
-          <td>Are the Falls Flowing?</td>
-          <td>Yes!</td>
-        </tr>
-        <tr>
-          <td>How Much Longer?</td>
-          <td>Est. 16 hrs.</td>
+           <td>Are the Falls Flowing?</td>
+           <td id="42210-is-flowing"></td> 
         </tr>
       </table>
-      <p class="fs-body-md ff-body txt-dark-600">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo. <button class="text-button" ><span class="txt-secondary-800 button">MORE</span></button></p>
+      <h1>Recent Rainfall</h1>
+<canvas id="rainDataChart" width="400" height="200"></canvas> <!-- Add canvas element for the bar chart -->
+<div id="rainData"></div>
+      <!-- <p class="fs-body-md ff-body txt-dark-600">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo. <button class="text-button" ><span class="txt-secondary-800 button">MORE</span></button></p>
       <table style="width:100%" class="fs-body-md ff-body txt-secondary-900">
         <tr>
           <td>Rainfall total yesterday: </td>
@@ -108,15 +76,11 @@
           <td>Are the Falls Flowing?</td>
           <td>Yes!</td>
         </tr>
-        <tr>
-          <td>How Much Longer?</td>
-          <td>Est. 16 hrs.</td>
-        </tr>
       </table>
       <figure>
         <img class="park-map-mobile"  src="/img/chart-placeholder.png" alt="A line chart showing the amount of rainfall in the area over the last few days.">
         <figcaption class="fs-100 txt-dark-600">Amount of rainfall over the past five days.</figcaption>
-       </figure>
+       </figure> -->
     </section>
 
     <div id="app"></div>
@@ -196,38 +160,115 @@
     <!-- Add your footer content here -->
   </footer>
 </div>  <!-- end of mobile-container -->
-  <!-- Add your JavaScript code and API integration here -->
-  <script>
-    // Example JavaScript code
-    // You can use this section to fetch data from your API and populate the photo grid
 
-    // const photoGrid = document.querySelector('.photo-grid');
+<script type="module" src="/js/nav.js"></script>  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js from CDN -->
+<script>
+  // after the accuweather API call in server.js, this updates the daily rainfall data (value and unit) for each zip code
+  fetch('api/recentRain')
+      .then(response => response.json())
+      .then(data => {
+          let rainDataMap = data.rainDataMap;
+          for (let [zipcode, rainData] of rainDataMap) {
+              document.getElementById(zipcode.toString()).textContent = rainData.value + " " + rainData.unit;
+              console.log(zipcode);
+          }
+      })
+      .catch(error => { 
+          console.error(error);
+          // Handle the error
+    });
+</script>
 
-    // Fetch photos from the API
-    // fetch('https://api.example.com/photos')
-    //   .then(response => response.json())
-    //   .then(photos => {
-    //     photos.forEach(photo => {
-    //       const img = document.createElement('img');
-    //       img.src = photo.url;
-    //       img.alt = photo.title;
-    //       photoGrid.appendChild(img);
-    //     });
-    //   })
-    //   .catch(error => {
-    //     console.error('Error fetching photos:', error);
-    //     console.log("where is ESLint?");
-    //   });
-  </script>
-  <script type="module" src="/js/nav.js"></script>
-  <!-- <script type="module" src="/js/app.js"></script> -->
-  <!-- this is for triggering the API call to accuweather upon opening the dev-server
-    put at the head of the API call
-    <script> 
-    function sayHi() {
-      alert('Hi');
+<script>
+  // Function to fetch historical rain data
+  async function fetchHistoricalRainData() {
+    try {
+      const response = await fetch('/api/historicalRain');
+      const data = await response.json();
+      return data;
+    } catch (error) {
+      console.error('Error fetching historical rain data:', error);
+      return [];
     }
-    setTimeout(sayHi, 3000);
-  </script> -->
+  }
+
+  // Function to render the bar chart
+  function renderBarChart(historicalData) {
+    const ctx = document.getElementById('rainDataChart').getContext('2d');
+
+    const labels = [];
+    const values = [];
+
+    historicalData.forEach((entry) => {
+      const timestamp = entry[0];
+      const dataMap = new Map(entry[1]);
+
+      labels.push(new Date(parseInt(timestamp)).toLocaleDateString());
+      values.push(dataMap.get(zipArr[0]).value);
+    });
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Rainfall (inches)',
+          data: values,
+          backgroundColor: 'rgba(54, 162, 235, 0.6)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      },
+      options: {
+        scales: {
+          x: {
+            grid: {
+              display: false
+            }
+          },
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+  }
+
+  // On page load, fetch and render historical rain data as a bar chart
+  document.addEventListener('DOMContentLoaded', async () => {
+    const historicalRainData = await fetchHistoricalRainData();
+    renderBarChart(historicalRainData);
+  });
+
+
+  // Function to fetch rain flow status
+  async function fetchRainFlowStatus() {
+    try {
+      const response = await fetch('/api/rainFlowStatus');
+      const data = await response.json();
+      return data;
+      console.log(data);
+    } catch (error) {
+      console.error('Error fetching rain flow status:', error);
+      return [];
+    }
+  }
+
+  // Function to update the rain flow status in the table
+  function updateRainFlowStatus(rainFlowStatus) {
+    for (let [zipcode, status] of rainFlowStatus) {
+      const rowId = `${zipcode}-is-flowing`;
+      document.getElementById(rowId).textContent = status;
+      console.log(`rowId${rowID}`);
+    }
+  }
+
+  // On page load, fetch and update rain flow status
+  document.addEventListener('DOMContentLoaded', async () => {
+    const rainFlowStatus = await fetchRainFlowStatus();
+    updateRainFlowStatus(rainFlowStatus);
+  });
+
+</script>
 </body>
 </html>
