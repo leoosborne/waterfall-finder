@@ -11,8 +11,9 @@ app.use(express.json());
 let router = express.Router();
 
 // using async/await AND an array with zipcodes, API req call to accuweather routes
-let zipArr = [42210];
+let zipArr = [42210, 40206];
 let historicalRainData = new Map(); // New Map to store historical rain data globally
+let rainFlowStatus = new Map(); //new Map to store answer to function that calculates whether rain >= 1" has fallen in area during last 24 hours.
 
 // Define a function to fetch and update the historical rain data
 const updateHistoricalRainData = async () => {
@@ -40,7 +41,7 @@ const updateHistoricalRainData = async () => {
 };
 
 // Schedule the task to update historical rain data at 12:15am every day in the timezone containing the zip codes
-cron.schedule('23 19 * * *', () => {
+cron.schedule('7 20 * * *', () => {
   updateHistoricalRainData();
   console.log(`cron ran updateHistoricalRainData() ${historicalRainData}`);
 });
@@ -55,7 +56,7 @@ router.get('/recentRain', (req, res, next) => {
       const latestEntry = [...historicalRainData.entries()].pop();
       const [timestamp, data] = latestEntry;
       for (let zipcode of zipArr) {
-        rainDataMap.set(zipcode, data.find(entry => entry[0] === zipcode)[1]);
+        rainDataMap.set(zipcode, data.find(entry => entry[0] === zipcode)[1]);///////////the function in the last piece of the code above seems to be the place where the html table is being written to...  psuedo code would be something like "zipcode + the result of the isRainFlowing(rainData) for each entry in the array..."
       }
     } else {
       for (let zipcode of zipArr) {
@@ -93,6 +94,7 @@ router.get('/rainFlowStatus', (req, res, next) => {
         rainFlowStatus.set(zipcode, 'No data');
       }
     }
+    console.log(rainFlowStatus);
 
     res.send({ "rainFlowStatus": Array.from(rainFlowStatus) });
   } catch (error) {

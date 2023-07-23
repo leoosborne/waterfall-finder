@@ -33,9 +33,6 @@
       <h1 class="fs-mobile-h1 
       ff-heading heading txt-accent-500 fw-semibold">Waterfall Finder</h1>
       <h2 class="fs-mobile-h2 ff-heading heading txt-accent-500 fw-semibold">Mammoth Cave National Park</h2>
-      <div>
-        <!-- Add your photos dynamically using JavaScript -->
-      </div>
     </section>
 
     <section class=" section-container">
@@ -66,7 +63,7 @@
       <h1>Recent Rainfall</h1>
 <canvas id="rainDataChart" width="400" height="200"></canvas> <!-- Add canvas element for the bar chart -->
 <div id="rainData"></div>
-      <!-- <p class="fs-body-md ff-body txt-dark-600">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo. <button class="text-button" ><span class="txt-secondary-800 button">MORE</span></button></p>
+      <p class="fs-body-md ff-body txt-dark-600">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo. <button class="text-button" ><span class="txt-secondary-800 button">MORE</span></button></p>
       <table style="width:100%" class="fs-body-md ff-body txt-secondary-900">
         <tr>
           <td>Rainfall total yesterday: </td>
@@ -74,13 +71,13 @@
         </tr>
         <tr>
           <td>Are the Falls Flowing?</td>
-          <td>Yes!</td>
+          <td id="40206-is-flowing"></td>
         </tr>
       </table>
       <figure>
         <img class="park-map-mobile"  src="/img/chart-placeholder.png" alt="A line chart showing the amount of rainfall in the area over the last few days.">
         <figcaption class="fs-100 txt-dark-600">Amount of rainfall over the past five days.</figcaption>
-       </figure> -->
+       </figure>
     </section>
 
     <div id="app"></div>
@@ -170,7 +167,7 @@
           let rainDataMap = data.rainDataMap;
           for (let [zipcode, rainData] of rainDataMap) {
               document.getElementById(zipcode.toString()).textContent = rainData.value + " " + rainData.unit;
-              console.log(zipcode);
+              console.log(zipcode);//shows zipcode(s) in console of localhost:3000
           }
       })
       .catch(error => { 
@@ -241,27 +238,47 @@
   });
 
 
-  // Function to fetch rain flow status
+  // Async/Await Function to fetch rain flow status
   async function fetchRainFlowStatus() {
     try {
       const response = await fetch('/api/rainFlowStatus');
       const data = await response.json();
       return data;
-      console.log(data);
+      console.log(data);//cannot find this console.log
     } catch (error) {
       console.error('Error fetching rain flow status:', error);
       return [];
     }
   }
 
-  // Function to update the rain flow status in the table
-  function updateRainFlowStatus(rainFlowStatus) {
-    for (let [zipcode, status] of rainFlowStatus) {
+  // Promise function to fetch rain flow status
+  // fetch('/api/rainFlowStatus')
+  //   .then(response => response.json)
+  //   .then(data => {
+  //     let rainFlowStatus = data.rainFlowStatus;
+  //     for (let [zipcode, rainData] of rainFlowStatus) {
+  //       document.getElementById(zipcode.toString()).textContent = rainData.rainFlowStatus;
+  //       console.log(rainData.rainFlowStatus);
+  //     }
+  //   })
+  //     .catch(error => { 
+  //         console.error(error);
+  //         // Handle the error
+  //   });
+// Function to update the rain flow status in the table; updated code
+function updateRainFlowStatus(rainFlowStatus) {
+    rainFlowStatus.forEach(([zipcode, status]) => {
       const rowId = `${zipcode}-is-flowing`;
       document.getElementById(rowId).textContent = status;
-      console.log(`rowId${rowID}`);
-    }
+    });
   }
+  // Function to update the rain flow status in the table; original code
+  // function updateRainFlowStatus(rainFlowStatus) {
+  //   for (let [zipcode, status] of rainFlowStatus) {
+  //     const rowId = `${zipcode}-is-flowing`;
+  //     document.getElementById(rowId).textContent = status;
+  //   }
+  // }
 
   // On page load, fetch and update rain flow status
   document.addEventListener('DOMContentLoaded', async () => {

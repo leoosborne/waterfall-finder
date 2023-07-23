@@ -294,7 +294,6 @@ Navigation
 h3, 
 p {
 color: var(--clr-accent-500);
-/* color: var(--clr-dark-bkgnd-900); */
 }
 .color-chart {
   display: flex;
@@ -307,8 +306,6 @@ color: var(--clr-accent-500);
   margin-bottom: 20px;
   padding: 10px;
   text-align: center;
-  /* background-color: var(--clr-light-bkgnd-700); */
-  /* background-color: var(--clr-dark-bkgnd-800); */
 }
 
 .color-item h3 {
@@ -326,8 +323,6 @@ color: var(--clr-accent-500);
 }
 
 .color-chart-bkgnd {
-/* background-color: var(--clr-accent-500); */
-/* background-color: var(--clr-light-bkgnd-500); */
 background-color: var(--clr-dark-bkgnd-600);
 }
 
@@ -352,18 +347,12 @@ Mobile First Styles ****
   text-align: center;
   box-sizing: border-box;
   width: 100%;
-  /* background-color: hsl(36, 68%, 62%, 75%); */
-  /* background-color: hsla(206, 58%, 92%, 65%); */
-  /* background-color: hsl(36, 68%, 52%, 80%); */
   background-color: hsl(206, 78%, 22%, 75%);
 }
 
 .hero-container > h2 {
   line-height: 2rem;
   text-align: center;
-  /* background-color: hsl(36, 68%, 62%, 75%); */
-  /* background-color: hsla(206, 58%, 92%, 65%);  */
-  /* background-color: hsl(36, 68%, 52%, 80%); */
   background-color: hsl(206, 78%, 22%, 75%);
   box-sizing: border-box;
   width: 100%;
@@ -504,7 +493,7 @@ Media Queries *******
   }
 }
 
-@media only screen and (min-width: 768px) {
+@media only screen and (min-width: 601px) {
   .case-study {
       display: flex;
       flex-direction: row;
