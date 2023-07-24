@@ -502,6 +502,33 @@ Media Queries *******
 }
 
 @media only screen and (min-width: 601px) {
+
+  .square-wrap-left img {
+    width: 50%;
+    float: right;
+    padding-left: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .square-wrap-left p {
+    padding: 1rem 0 0;
+  }
+
+  .square-wrap-right {
+    margin-top: 1rem;
+  }
+
+  .square-wrap-right img {
+    width: 50%;
+    float: left;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .square-wrap-right p {
+    padding: 0 0 1rem ;
+  }
+
   .case-study {
       display: flex;
       flex-direction: row;
