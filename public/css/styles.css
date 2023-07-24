@@ -335,8 +335,8 @@ Mobile First Styles ****
   flex-direction: column;
   align-content: space-between;
   align-items: center;
-  min-height: 65vh;
-  background-image: url(/img/hero-mobile.jpg);
+  min-height: 30vh;
+  background-image: url(/img/section-twister-falls.jpg);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -350,14 +350,15 @@ Mobile First Styles ****
   background-color: hsl(206, 78%, 22%, 75%);
 }
 
-.hero-container > h2 {
+.hero-container > h2,
+.section-container > h2 {
   line-height: 2rem;
   text-align: center;
   background-color: hsl(206, 78%, 22%, 75%);
   box-sizing: border-box;
   width: 100%;
-  position: absolute;
-  bottom: 0;
+  /* position: absolute;
+  bottom: 0; */
 }
 
 .section-container {
@@ -377,7 +378,6 @@ Mobile First Styles ****
 
 .park-map-mobile {
   border: 1px solid var(--clr-secondary-800);
-  margin: .25rem 0;
 }
 
 .section-container figcaption {
@@ -491,6 +491,14 @@ Media Queries *******
   .mobile-container {
     margin: 1rem;
   }
+
+  .hero-container {
+    min-height: 50vh;
+    background-image: url(/img/hero-twister-mobile.jpg);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+  }
 }
 
 @media only screen and (min-width: 601px) {
@@ -499,7 +507,7 @@ Media Queries *******
       flex-direction: row;
   }
   .case-study img {
-      border-radius: 1rem 0 0 1rem;
+      /* border-radius: 1rem 0 0 1rem; */
       display: flex;
       justify-content: center;
       align-items: center;
@@ -513,11 +521,15 @@ Media Queries *******
 
   .reverse {
       flex-direction: row-reverse;
+      margin: 1rem 0;
+  }
+  .reverse p {
+    margin-right: 1rem;
   }
 
-  .reverse img {
+  /* .reverse img {
       border-radius: 0 1rem 1rem 0;
-  }
+  } */
 
   /* .even-columns {
       grid-auto-flow: column;
@@ -588,8 +600,11 @@ Media Queries *******
     box-shadow: inset 2px 2px 1px var(--clr-primary-850);
   }
 
+  .case-study-text {
+    /* padding: 1rem; */
+    padding: .75rem 1rem;
+  }
 }
-
 
 /****************************
  utility classes ************
