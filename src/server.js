@@ -11,9 +11,10 @@ app.use(express.json());
 let router = express.Router();
 
 // using async/await AND an array with zipcodes, API req call to accuweather routes
-let zipArr = [42210, 40206];
+let zipArr = [42210];
 let historicalRainData = new Map(); // New Map to store historical rain data globally
-let rainFlowStatus = new Map(); //new Map to store answer to function that calculates whether rain >= 1" has fallen in area during last 24 hours.
+let fallsFlowData = new Map(); // new Map to store waterfall flow data globally
+
 
 // Define a function to fetch and update the historical rain data
 const updateHistoricalRainData = async () => {
@@ -41,7 +42,7 @@ const updateHistoricalRainData = async () => {
 };
 
 // Schedule the task to update historical rain data at 12:15am every day in the timezone containing the zip codes
-cron.schedule('28 7 * * *', () => {
+cron.schedule('26 8 * * *', () => {
   updateHistoricalRainData();
   console.log(`cron ran updateHistoricalRainData() ${historicalRainData}`);
 });
@@ -56,7 +57,7 @@ router.get('/recentRain', (req, res, next) => {
       const latestEntry = [...historicalRainData.entries()].pop();
       const [timestamp, data] = latestEntry;
       for (let zipcode of zipArr) {
-        rainDataMap.set(zipcode, data.find(entry => entry[0] === zipcode)[1]);///////////the function in the last piece of the code above seems to be the place where the html table is being written to...  psuedo code would be something like "zipcode + the result of the isRainFlowing(rainData) for each entry in the array..."
+        rainDataMap.set(zipcode, data.find(entry => entry[0] === zipcode)[1]);
       }
     } else {
       for (let zipcode of zipArr) {
@@ -80,23 +81,24 @@ function isRainFlowing(rainData) {
 // API route to get the rain flow status for each zipcode
 router.get('/rainFlowStatus', (req, res, next) => {
   try {
-    let rainFlowStatus = new Map();
+    let fallsFlowMap = new Map();
 
-    // Use the existing rainDataMap if available
+    // Use the existing fallsFlowMap if available
     if (historicalRainData.size > 0) {
       const latestEntry = [...historicalRainData.entries()].pop();
       const [timestamp, data] = latestEntry;
       for (let [zipcode, rainData] of data) {
-        rainFlowStatus.set(zipcode, isRainFlowing(rainData));
+        fallsFlowMap.set(zipcode, isRainFlowing(rainData));
       }
     } else {
       for (let zipcode of zipArr) {
-        rainFlowStatus.set(zipcode, 'No data');
+        fallsFlowMap.set(zipcode, 'No data');
       }
     }
-    console.log(rainFlowStatus);
+    fallsFlowData.set(Date.now(), Array.from(fallsFlowMap)); //store fallsFlowData with timestamps
+    console.log(fallsFlowData);
 
-    res.send({ "rainFlowStatus": Array.from(rainFlowStatus) });
+    res.send({ "fallsFlowMap": Array.from(fallsFlowMap) });
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");
