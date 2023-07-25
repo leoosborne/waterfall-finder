@@ -9,7 +9,7 @@ Embedded Fonts
 /* Oswald: Title font: san serif  */
 @font-face {
     font-family: 'oswald';
-    src: local('oswald regular'), local('oswald-regular'), url('../../public/fonts/oswald-regular-webfont.woff') format('woff');
+    src: local('oswald regular'), local('oswald-regular'), url('../../fonts/oswald-regular-webfont.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -17,7 +17,7 @@ Embedded Fonts
   
   @font-face {
     font-family: 'oswald';
-    src: local('oswald regular italic'), local('oswald-regular-italic'), url('../../public/fonts/oswald-regularitalic-webfont.woff') format('woff');
+    src: local('oswald regular italic'), local('oswald-regular-italic'), url('../../fonts/oswald-regularitalic-webfont.woff') format('woff');
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -25,7 +25,7 @@ Embedded Fonts
   
   @font-face {
     font-family: 'oswald';
-    src: local('oswald medium'), local('oswald-medium'), url('../../public/fonts/oswald-medium-webfont.woff') format('woff');
+    src: local('oswald medium'), local('oswald-medium'), url('../../fonts/oswald-medium-webfont.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
@@ -34,7 +34,7 @@ Embedded Fonts
   
   @font-face {
     font-family: 'oswald';
-    src: local('oswald bold'), local('oswald-bold'), url('../../public/fonts/oswald-bold-webfont.woff') format('woff');
+    src: local('oswald bold'), local('oswald-bold'), url('../../fonts/oswald-bold-webfont.woff') format('woff');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -44,7 +44,7 @@ Embedded Fonts
   
   @font-face {
     font-family: 'fira sans';
-    src: local( 'fira sans'), local( 'fira-sans'), local( 'firasans'), url('../../public/fonts/firasans-regular-webfont.woff') format('woff');
+    src: local( 'fira sans'), local( 'fira-sans'), local( 'firasans'), url('../../fonts/firasans-regular-webfont.woff') format('woff');
     font-weight: 400;
     font-style: normal;
     font-display: swap;
@@ -52,7 +52,7 @@ Embedded Fonts
   
   @font-face {
     font-family: 'fira sans';
-    src: local( 'fira sans'), local( 'fira-sans'), local( 'firasans'), url('../../public/fonts/firasans-italic-webfont.woff') format('woff');
+    src: local( 'fira sans'), local( 'fira-sans'), local( 'firasans'), url('../../fonts/firasans-italic-webfont.woff') format('woff');
     font-weight: 400;
     font-style: italic;
     font-display: swap;
@@ -60,7 +60,7 @@ Embedded Fonts
   
   @font-face {
     font-family: 'fira sans';
-    src: local( 'fira sans'), local( 'fira-sans'), local( 'firasans'), url('../../public/fonts/firasans-semibold-webfont.woff') format('woff');
+    src: local( 'fira sans'), local( 'fira-sans'), local( 'firasans'), url('../../fonts/firasans-semibold-webfont.woff') format('woff');
     font-weight: 600;
     font-style: normal;
     font-display: swap;
@@ -68,7 +68,7 @@ Embedded Fonts
   
   @font-face {
     font-family: 'fira sans';
-    src: local( 'fira sans'), local( 'fira-sans'), local( 'firasans'), url('../../public/fonts/firasans-semibolditalic-webfont.woff') format('woff');
+    src: local( 'fira sans'), local( 'fira-sans'), local( 'firasans'), url('../..fonts/firasans-semibolditalic-webfont.woff') format('woff');
     font-weight: 600;
     font-style: italic;
     font-display: swap;

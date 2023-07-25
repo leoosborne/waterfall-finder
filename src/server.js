@@ -11,15 +11,15 @@ app.use(express.json());
 let router = express.Router();
 
 // using async/await AND an array with zipcodes, API req call to accuweather routes
-let zipArr = [42210];
-let historicalRainData = new Map(); // New Map to store historical rain data globally
-let fallsFlowData = new Map(); // new Map to store waterfall flow data globally
+const zipArr = [42210, 40206];
+const historicalRainData = new Map(); // New Map to store historical rain data globally
+const fallsFlowData = new Map(); // new Map to store waterfall flow data globally
 
 
 // Define a function to fetch and update the historical rain data
 const updateHistoricalRainData = async () => {
   try {
-    let rainDataMap = new Map();
+    const rainDataMap = new Map();
 
     for (let zipcode of zipArr) {
       let response = await fetch(`http://dataservice.accuweather.com/currentconditions/v1/${zipcode}?apikey=${process.env.ACCUWEATHER_API_KEY}&details=${true}`);
@@ -42,7 +42,7 @@ const updateHistoricalRainData = async () => {
 };
 
 // Schedule the task to update historical rain data at 12:15am every day in the timezone containing the zip codes
-cron.schedule('26 8 * * *', () => {
+cron.schedule('19 13 * * *', () => {
   updateHistoricalRainData();
   console.log(`cron ran updateHistoricalRainData() ${historicalRainData}`);
 });
@@ -50,11 +50,11 @@ cron.schedule('26 8 * * *', () => {
 // Handle the initial request for recent rain data
 router.get('/recentRain', (req, res, next) => {
   try {
-    let rainDataMap = new Map();
+    const rainDataMap = new Map();
 
     // Use the existing rainDataMap if available
     if (historicalRainData.size > 0) {
-      const latestEntry = [...historicalRainData.entries()].pop();
+      const latestEntry = historicalRainData.slice(-1);
       const [timestamp, data] = latestEntry;
       for (let zipcode of zipArr) {
         rainDataMap.set(zipcode, data.find(entry => entry[0] === zipcode)[1]);
@@ -81,7 +81,7 @@ function isRainFlowing(rainData) {
 // API route to get the rain flow status for each zipcode
 router.get('/rainFlowStatus', (req, res, next) => {
   try {
-    let fallsFlowMap = new Map();
+    const fallsFlowMap = new Map();
 
     // Use the existing fallsFlowMap if available
     if (historicalRainData.size > 0) {

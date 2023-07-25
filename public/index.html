@@ -250,7 +250,7 @@
       console.log(data);//cannot find this console.log
     } catch (error) {
       console.error('Error fetching rain flow status:', error);
-      return [];
+      return data.rainFlowStatus;
     }
   }
 
@@ -270,6 +270,7 @@
   //   });
 // Function to update the rain flow status in the table; updated code
 function updateRainFlowStatus(rainFlowStatus) {
+    console.assert(Array.isArray(data.rainFlowStatus));
     rainFlowStatus.forEach(([zipcode, status]) => {
       const rowId = `${zipcode}-is-flowing`;
       document.getElementById(rowId).textContent = status;
