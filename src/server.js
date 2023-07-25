@@ -11,7 +11,7 @@ app.use(express.json());
 let router = express.Router();
 
 // using async/await AND an array with zipcodes, API req call to accuweather routes
-const zipArr = [42210, 40206];
+const zipArr = [42210];
 const historicalRainData = new Map(); // New Map to store historical rain data globally
 const fallsFlowData = new Map(); // new Map to store waterfall flow data globally
 
@@ -42,9 +42,8 @@ const updateHistoricalRainData = async () => {
 };
 
 // Schedule the task to update historical rain data at 12:15am every day in the timezone containing the zip codes
-cron.schedule('28 15 * * *', () => {
+cron.schedule('18 19 * * *', () => {
   updateHistoricalRainData();
-  console.log(`cron ran updateHistoricalRainData() ${historicalRainData}`);
 });
 
 // Handle the initial request for recent rain data
@@ -55,7 +54,7 @@ router.get('/recentRain', (req, res, next) => {
     // Use the existing rainDataMap if available
     if (historicalRainData.size > 0) {
       const latestEntry = [...historicalRainData.entries()].pop();
-      // const latestEntry = historicalRainData.slice(-1);
+      // const latestEntry = historicalRainData. entries().slice(-1);
       const [timestamp, data] = latestEntry;
       for (let zipcode of zipArr) {
         rainDataMap.set(zipcode, data.find(entry => entry[0] === zipcode)[1]);
@@ -100,6 +99,16 @@ router.get('/rainFlowStatus', (req, res, next) => {
     console.log(fallsFlowData);
 
     res.send({ "fallsFlowMap": Array.from(fallsFlowMap) });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send("Internal Server Error");
+  }
+});
+
+// Handle the request for entire historical rain data
+router.get('/historicalRain', (req, res, next) => {
+  try {
+    res.send(Array.from(historicalRainData));
   } catch (error) {
     console.error(error);
     res.status(500).send("Internal Server Error");

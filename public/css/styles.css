@@ -402,7 +402,9 @@ Mobile First Styles ****
   margin: 1rem 0;
   /* replace the style="width: 100% in html with a nth child selector, targeting the second td in each tr */
 }
-
+.section-container p {
+  padding-bottom: 1rem;
+}
 /* h2 > a:link,
 h2 > a:visited {
   color: var(--clr-primary-850);
