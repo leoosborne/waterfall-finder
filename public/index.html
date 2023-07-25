@@ -246,11 +246,11 @@
     try {
       const response = await fetch('/api/rainFlowStatus');
       const data = await response.json();
-      return data;
+      return data.fallsFlowMap;
       console.log(data);//cannot find this console.log
     } catch (error) {
       console.error('Error fetching rain flow status:', error);
-      return data.rainFlowStatus;
+      return [];
     }
   }
 
@@ -270,7 +270,7 @@
   //   });
 // Function to update the rain flow status in the table; updated code
 function updateRainFlowStatus(rainFlowStatus) {
-    console.assert(Array.isArray(data.rainFlowStatus));
+    console.assert(Array.isArray(rainFlowStatus));
     rainFlowStatus.forEach(([zipcode, status]) => {
       const rowId = `${zipcode}-is-flowing`;
       document.getElementById(rowId).textContent = status;
