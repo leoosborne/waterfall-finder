@@ -42,7 +42,7 @@ const updateHistoricalRainData = async () => {
 };
 
 // Schedule the task to update historical rain data at 12:15am every day in the timezone containing the zip codes
-cron.schedule('18 19 * * *', () => {
+cron.schedule('53 10 * * *', () => {
   updateHistoricalRainData();
 });
 
@@ -64,7 +64,8 @@ router.get('/recentRain', (req, res, next) => {
         rainDataMap.set(zipcode, { "value": "No data", "unit": "" });
       }
     }
-    console.log(rainDataMap);
+    historicalRainData.set(Date.now(), Array.from(rainDataMap)); // store accumulated historicalRainData 
+    console.log(historicalRainData); 
 
     res.send({ "rainDataMap": Array.from(rainDataMap) });
   } catch (error) {

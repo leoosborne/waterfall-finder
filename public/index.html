@@ -55,21 +55,22 @@
           <p class="fs-body-md ff-body txt-dark-600">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. </p>
       </article>
       <article>
-        
-          <h1>Recent Rainfall</h1>
-            <canvas id="rainDataChart" width="400" height="200"></canvas> <!-- Add canvas element for the bar chart -->
-            <table style="width:100%"  class="fs-body-md ff-body txt-secondary-900">      
-            <tr>
-              <td>Rainfall total yesterday: </td>
-              <td id="42210"></td>
-            </tr>
-            <tr>
-              <td>Are the Falls Flowing?</td>
-              <td id="42210-is-flowing"></td> 
-            </tr>
-          </table>
-          <p class="fs-body-md ff-body txt-dark-600">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.</p>
-       
+        <h1>Recent Rainfall</h1>
+          <canvas id="rainDataChart"></canvas> <!-- Add canvas element for the bar chart -->
+          <div>
+            <canvas id="myChart"></canvas>
+          </div>
+          <table style="width:100%"  class="fs-body-md ff-body txt-secondary-900">      
+          <tr>
+            <td>Rainfall total yesterday: </td>
+            <td id="42210"></td>
+          </tr>
+          <tr>
+            <td>Are the Falls Flowing?</td>
+            <td id="42210-is-flowing"></td> 
+          </tr>
+        </table>
+        <p class="fs-body-md ff-body txt-dark-600">Curabitur tempor quis eros tempus lacinia. Nam bibendum pellentesque quam a convallis. Sed ut vulputate nisi. Integer in felis sed leo vestibulum venenatis. Nulla varius volutpat turpis sed lacinia. Nam eget mi in purus lobortis eleifend. Sed nec ante dictum sem condimentum ullamcorper quis venenatis nisi. Proin vitae facilisis nisi, ac posuere leo.</p>
       </article>
       <article class="square-wrap-right">
       <div id="rainData"></div>
@@ -162,17 +163,41 @@
   </footer>
 </div>  <!-- end of mobile-container -->
 
-<script type="module" src="/js/nav.js"></script>  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js from CDN -->
+<script type="module" src="/js/nav.js"></script>  
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- Include Chart.js from CDN -->
+
+<script>
+  const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+</script>  
 <script>
   // after the accuweather API call in server.js, this updates the daily rainfall data (value and unit) for each zip code
   fetch('api/recentRain')
       .then(response => response.json())
-      .then(data => {
-          let rainDataMap = data.rainDataMap;
-          for (let [zipcode, rainData] of rainDataMap) {
-              document.getElementById(zipcode.toString()).textContent = rainData.value + " " + rainData.unit;
-              console.log(zipcode);//shows zipcode(s) in console of localhost:3000
-          }
+        .then(data => {
+            let rainDataMap = data.rainDataMap;
+            for (let [zipcode, rainData] of rainDataMap) {
+                document.getElementById(zipcode.toString()).textContent = rainData.value + " " + rainData.unit;
+                console.log(zipcode);//shows zipcode(s) in console of localhost:3000
+            }
       })
       .catch(error => { 
           console.error(error);
@@ -192,7 +217,8 @@
       return [];
     }
   }
-
+</script>
+<!-- <script>
   // Function to render the bar chart
   function renderBarChart(historicalData) {
     const ctx = document.getElementById('rainDataChart').getContext('2d');
@@ -234,7 +260,8 @@
       }
     });
   }
-
+</script> -->
+<script>
   // On page load, fetch and render historical rain data as a bar chart
   document.addEventListener('DOMContentLoaded', async () => {
     const historicalRainData = await fetchHistoricalRainData();
