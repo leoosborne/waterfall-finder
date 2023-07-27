@@ -42,7 +42,7 @@ const updateHistoricalRainData = async () => {
 };
 
 // Schedule the task to update historical rain data at 12:15am every day in the timezone containing the zip codes
-cron.schedule('17 9 * * *', () => {
+cron.schedule('8 13 * * *', () => {
   updateHistoricalRainData();
 });
 
