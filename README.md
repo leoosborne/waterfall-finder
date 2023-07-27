@@ -49,6 +49,8 @@ The project will be a responsive multi-page application (MPA) built either with 
 
 
 ## Instructions 
+[Project built with VS Code]
 1. Download the codebase from this repository
 2. On line 25 in server.js, replace "process.env.ACCUWEATHER_API_KEY" with "K1F3i99Hrjs6JGPe9fjMpAeZbrGdOkYb"
 3. On line 44 in server.js, update the cron.schedule to one minute in the future to trigger the API call to Accuweather. the first number is minutes, the second number is hour in 24 hour scale (aka "military time"). Example, if you are reviewing this project at 1:30, set the code to '31 13 * * *' to trigger the API call at 1:31pm.
+4. to start the server and run the project, type "npm run debug" in your IDE's terminal. 
