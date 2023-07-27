@@ -330,6 +330,10 @@ background-color: var(--clr-dark-bkgnd-600);
 Mobile First Styles ****
 ************************/
 
+container {
+  width: min(var(--max-width), 100% - (2rem * 2));
+}
+
 .hero-container {
   display: flex;
   flex-direction: column;
@@ -516,8 +520,8 @@ Media Queries *******
     padding: 1rem 0 0;
   }
 
-  .square-wrap-right {
-    margin-top: 1rem;
+  .square-wrap-right p {
+    padding: 0 0 0 1rem;
   }
 
   .square-wrap-right img {
@@ -535,6 +539,10 @@ Media Queries *******
       display: flex;
       flex-direction: row;
   }
+  .case-study canvas {
+    margin-right: 1rem;
+  }
+
   .case-study img {
       /* border-radius: 1rem 0 0 1rem; */
       display: flex;

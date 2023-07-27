@@ -1,23 +1,75 @@
 'use strict';
 
-const app = document.getElementById('app');
-const mammothCave = getElementById('mammothCave');
+let accumulatedRainData = new Map();
+// after the accuweather API call in server.js, this updates the daily rainfall data (value and unit) for each zip code
+fetch('api/recentRain')
+    .then(response => response.json())
+    .then((data) => {
+        let rainDataMap = data.rainDataMap;
+        for (let [zipcode, rainData] of rainDataMap) {
+            document.getElementById(zipcode.toString()).textContent = rainData.value + " " + rainData.unit;
+            accumulatedRainData[zipcode] = rainData; // Store the rainData in the accumulatedRainData object
+            console.log(rainDataMap);//shows zipcode(s) in console of localhost:3000
+        }
+    })
+    .catch(error => {
+        console.error(error);
+        // Handle the error
+    });
 
-function getRain() {
-    let rain_past_24hrs = "";
-    let zipcode = 42210;
-
-// idea is to 
-// FUTURE 1. create a array/map/set with the zipcode info for each location
-        // a. using an API call for lat long of area 
-        // b. storing area name and zipcode
-// FUTURE 2. create a function that will iterate over the zipcode and use it to create requests for rain_past_24hrs for each location
-// 3. store the returned data from the API request for rain_past_24hrs (value and unit) into a map or set
-// 4. use innerHTML to print the results of the rain_past_24hrs API call into the correct section of the webpage
-
-// questions: how do I test this without createing an app.js?
-
-
-    console.log(zipcode.valueOf);
-
+// Function to fetch historical rain data
+async function fetchHistoricalRainData() {
+    try {
+        const response = await fetch('/api/historicalRain');
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error('Error fetching historical rain data:', error);
+        return [];
+    }
 }
+
+  // Async/Await Function to fetch rain flow status
+  async function fetchRainFlowStatus() {
+    try {
+      const response = await fetch('/api/rainFlowStatus');
+      const data = await response.json();
+      return data.fallsFlowMap;
+      console.log(data);//cannot find this console.log
+    } catch (error) {
+      console.error('Error fetching rain flow status:', error);
+      return [];
+    }
+  }
+
+  // Promise function to fetch rain flow status
+  // fetch('/api/rainFlowStatus')
+  //   .then(response => response.json)
+  //   .then(data => {
+  //     let rainFlowStatus = data.rainFlowStatus;
+  //     for (let [zipcode, rainData] of rainFlowStatus) {
+  //       document.getElementById(zipcode.toString()).textContent = rainData.rainFlowStatus;
+  //       console.log(rainData.rainFlowStatus);
+  //     }
+  //   })
+  //     .catch(error => { 
+  //         console.error(error);
+  //         // Handle the error
+  //   });
+
+  // Function to update the rain flow status in the table; updated code
+function updateRainFlowStatus(rainFlowStatus) {
+    console.assert(Array.isArray(rainFlowStatus));
+    rainFlowStatus.forEach(([zipcode, status]) => {
+      const rowId = `${zipcode}-is-flowing`;
+      document.getElementById(rowId).textContent = status;
+    });
+  }
+
+    // On page load, fetch and update rain flow status
+    document.addEventListener('DOMContentLoaded', async () => {
+        const rainFlowStatus = await fetchRainFlowStatus();
+        updateRainFlowStatus(rainFlowStatus);
+      });
+    
+
