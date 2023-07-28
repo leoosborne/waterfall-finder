@@ -35,7 +35,7 @@ Project will create functions that
 
 
 ## Technical Description
-The project will be a responsive multi-page application (MPA) built either with MongoDB, Express, ReactJS and Node.js, or with vanilla JavaScript if I cannot grok React within the alloted time. My research pointed me to this setup because I want the following features.
+The first iteration of the project will be a responsive single-page application built with Express, vanilla javascript and Node.js. Eventually it will become a Multi-Page Application. My research pointed me to this setup because I want the following features...
 
     1. Ability to add Google Analytics.
     2. Ability to track SEO for the different pages.
@@ -49,8 +49,13 @@ The project will be a responsive multi-page application (MPA) built either with 
 
 
 ## Instructions 
-[Project built with VS Code]
 1. Download the codebase from this repository
 2. On line 25 in server.js, replace "process.env.ACCUWEATHER_API_KEY" with "K1F3i99Hrjs6JGPe9fjMpAeZbrGdOkYb"
-3. On line 44 in server.js, update the cron.schedule to one minute in the future to trigger the API call to Accuweather. the first number is minutes, the second number is hour in 24 hour scale (aka "military time"). Example, if you are reviewing this project at 1:30, set the code to '31 13 * * *' to trigger the API call at 1:31pm.
-4. to start the server and run the project, type "npm run debug" in your IDE's terminal. 
+3. Cd into src dir
+4. Remove the dotenv file from package.json
+5. Install a new dotenv file: npm install --save dotenv
+6. To start the server and run the project, type "npm run debug" in your IDE's terminal. 
+7. Open a new browser window with localhost:3000
+8. On line 44 in server.js, update the cron.schedule to one minute in the future to trigger the API call to Accuweather. The first number is minutes, the second number is hours in 24 hour scale ("military time"). Example, if you are reviewing this project at 1:30pm, set the code to '31 13 * * *' to trigger the API call at 1:31pm.
+
+9. Check the table under the heading "Are the Falls Flowing Now?" Rain Data from the last 24 hours will populate the table row "Rainfall total yesterday". In "Are the Falls Flowing" table row, a function checks to see if 1 inch or more of rain fell yesterday (starting at mid-night the day before). Yes or No are printed depending upon this function. 
