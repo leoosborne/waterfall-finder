@@ -49,13 +49,17 @@ The first iteration of the project will be a responsive single-page application 
 
 
 ## Instructions 
-1. Download the codebase from this repository
-2. On line 25 in server.js, replace "process.env.ACCUWEATHER_API_KEY" with "K1F3i99Hrjs6JGPe9fjMpAeZbrGdOkYb"
-3. Cd into src dir
-4. Remove the dotenv file from package.json
-5. Install a new dotenv file: npm install --save dotenv
-6. To start the server and run the project, type "npm run debug" in your IDE's terminal. 
-7. Open a new browser window with localhost:3000
-8. On line 44 in server.js, update the cron.schedule to one minute in the future to trigger the API call to Accuweather. The first number is minutes, the second number is hours in 24 hour scale ("military time"). Example, if you are reviewing this project at 1:30pm, set the code to '31 13 * * *' to trigger the API call at 1:31pm.
 
-9. Check the table under the heading "Are the Falls Flowing Now?" Rain Data from the last 24 hours will populate the table row "Rainfall total yesterday". In "Are the Falls Flowing" table row, a function checks to see if 1 inch or more of rain fell yesterday (starting at mid-night the day before). Yes or No are printed depending upon this function. 
+1. clone the git repo onto your computer
+2. cd into the src file (where package.json is)
+3. run “npm install” (to add a new node_modules)
+4. run “npm install dotenv” (to replace the current dotenv. this might not be necessary if dotenv already exists in node_modules folder)
+5. create a new file called .env in the same directory as package.json
+6. create a new environment variable for the API Key in .env file (ACCUWEATHER_API_KEY = “K1F3i99Hrjs6JGPe9fjMpAeZbrGdOkYb”)
+7. check server.js line 25 that the variable in the fetch call to api is this: ${process.env.ACCUWEATHER_API_KEY};
+8. On line 44 in server.js, update the cron.schedule to one minute in the future to trigger the API call to AccuWeather. The first number is minutes, the second number is hours in 24 hour scale ("military time"). Example, if you are reviewing this project at 1:30pm, set the code to '31 13 * * *' to trigger the API call at 1:31pm.
+9. start the dev server (“npm run debug”)
+10. open a new browser window (localhost:3000)
+11. Project should run successfully. 
+12. Check the table under the heading "Are the Falls Flowing Now?". Rain Data from the last 24 hours will populate the table row "Rainfall total yesterday". In "Are the Falls Flowing" table row, a function checks to see if 1 inch or more of rain fell yesterday (starting at mid-night the day before). Yes or No are printed depending upon this function. 
+13. If you see "no data" in either of these lines, repeat steps 8 - 10 to make sure that the API call fires correctly. 
