@@ -18,8 +18,9 @@ Project will create functions that
 
 3. "Visualize data in a user friendly way. (e.g. graph, chart, etc.)."
 
-    - [yes, but hard coded] Using Chart.js, show how much rain has fallen per hour over the past five days.
-    - [future] Using the function, show the approximate time that waterfalls will be flowing.
+    - [yes] Using Chart.js, show how much rain has fallen per hour over the past five days.
+    - [future] Create function to accumulate live data from the daily API calls and update the chart with real-time data.
+    - [future] Improve the "fallsFlowing() function to estimate how much longer the waterfalls will be flowing.
   
 
 4. "Retrieve data from a third-party API and use it to display something within your app."
