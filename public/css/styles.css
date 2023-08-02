@@ -341,7 +341,7 @@ p {
 Mobile First Styles ****
 ************************/
 
-container {
+.container {
   width: min(var(--max-width), 100% - (2rem * 2));
 }
 
@@ -351,7 +351,7 @@ container {
   align-content: space-between;
   align-items: center;
   min-height: 30vh;
-  background-image: url(/img/section-twister-falls.jpg);
+  background-image: url(/img/hero-fourth-mobile.jpg);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -519,7 +519,7 @@ Media Queries *******
 
   .hero-container {
     min-height: 50vh;
-    background-image: url(/img/hero-twister-mobile.jpg);
+    /* background-image: url(/img/hero-twister-mobile.jpg); */
     background-size: cover;
     background-position: center;
     position: relative;
@@ -545,11 +545,11 @@ Media Queries *******
   }
 
   .square-wrap-left p {
-    padding: 1rem 0 0 0;
+    padding: 0 0 1rem;
   }
 
   .square-wrap-right p {
-    padding: 0 0 0 1rem;
+    padding: 0 0 1rem;
   }
 
   .square-wrap-right img {
@@ -557,10 +557,6 @@ Media Queries *******
     float: left;
     margin-right: 1rem;
     margin-bottom: 1rem;
-  }
-
-  .square-wrap-right p {
-    padding: 0 0 1rem;
   }
 
   /* .flex-container img {
