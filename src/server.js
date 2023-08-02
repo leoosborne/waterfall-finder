@@ -52,7 +52,7 @@ router.get('/historicalRain', (req, res, next) => {
 });
 
 // Schedule the task to update historical rain data at 12:15am every day in the timezone containing the zip codes
-cron.schedule('57 19 * * *', () => {
+cron.schedule('59 20 * * *', () => {
   updateHistoricalRainData();
 });
 

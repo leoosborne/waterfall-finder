@@ -446,6 +446,7 @@ container {
   border: 1px solid var(--clr-primary-600);
 }
 
+
 /********************
 Media Queries *******
 *********************/
@@ -544,7 +545,7 @@ Media Queries *******
   }
 
   .square-wrap-left p {
-    padding: 1rem 0 0;
+    padding: 1rem 0 0 0;
   }
 
   .square-wrap-right p {
@@ -592,6 +593,10 @@ Media Queries *******
     /* background-color: var(--clr-accent-600); */
     flex: 1;
     padding: 1rem;
+  }
+
+  .park-map-mobile {
+    max-width: 500px;
   }
 
   .case-study {
