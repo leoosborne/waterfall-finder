@@ -31,8 +31,9 @@ Project will create functions that
 5. "Create a node.js web server using a modern framework such as Express.js or Fastify.  Serve at least one route that your app uses."
 
     - [yes] Create a server with Node.js and Express.js.
-    - [future] Use local storage to save JSON data from APIs and function returns.
     - [yes] Use vanilla JavaScript for the client and server side scripting.
+    - [future] Use database to save JSON data from APIs and function returns. Also, add falls information to this database.
+    
 
 
 ## Technical Description
