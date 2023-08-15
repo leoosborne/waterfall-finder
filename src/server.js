@@ -41,6 +41,8 @@ const updateHistoricalRainData = async () => {
   }
 };
 
+// Right here is where i need to create an IIFE function that will run each time the updateHistoricalRainData() is called, adding the current value of hitoricalRainData map to accumulatedRainData map, so it can be passed to client an contain the last five daily rain values to the rain data charts for each site.
+
 // Handle the request for entire historical rain data
 router.get('/historicalRain', (req, res, next) => {
   try {
@@ -52,7 +54,7 @@ router.get('/historicalRain', (req, res, next) => {
 });
 
 // Schedule the task to update historical rain data at 12:15am every day in the timezone containing the zip codes
-cron.schedule('20 10 * * *', () => {
+cron.schedule('8 20 * * *', () => {
   updateHistoricalRainData();
 });
 
